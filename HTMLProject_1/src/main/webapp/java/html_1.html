@@ -1,0 +1,173 @@
+<!--
+	HTML 주석 => 브라우저에서 번역이 안되는 부분
+	~ML (Markup Language) => HTML, XML, WML< HDML, VML ...
+	                         ==========
+	 HTML : 이미 태그가 만들어져 있다 (사용자 정의가 없다)
+	        =================== 표준화
+	 XML : 만들어진 태그가 없다(사용자 정의만 존재)
+	         | MyBatis , Spring
+	 HTML은 브라우저에서만 실행되는 언어
+	   => 동적 기능이 없다 , 정적 기능만 가지고 있다.
+	      => 브라우저에 출력만 하는 역할
+	 *** 웹 프로그래밍
+	                               SQL 문장 전송
+	 브라우저      ========     자바     ==========  데이터 저장장소(오라클)
+	                  결과값을 이용해서 HTML 실행결과
+        | HTML 전송	      
+        
+      => HTML을 제작
+         ==== 구성요소
+         ML => 태그, 속성
+         태그 => <a> , <hr> , <div> ...
+		   = 종류
+		     여는 태그 : <태그명>
+		     닫는 태그 : </태그명>
+		       => <태그명></태그명>
+		     독립 태그(단독 태그) 
+		       => <태그명>  <태그명/> => /는 생략이 가능
+		       => 제목
+		          <h1>영화</h1> => 태그명 , 역할
+		 속성 => <a href="">
+			       ====
+			   속성 => 구분자 (class , id, name)
+			                            ==== 자바로 데이터 전송
+			      class,id = 자바스크립트 , CSS
+			             | 중복을 허용하지 않음 => #
+			        | 중복이 허용 .
+			      속성 => 크기(width,height)
+			          => 모든 태그 => style
+   => 웹동작
+      ===== 요청 / 응답 (네트워크)
+      1. 요청 = (클라이언트) = 화면에 보여준다
+                          ============ 브라우저(Front-End)
+      2. 응답 => 서버와 연결 => 서버에서 응답값을 전송 => 브라우저
+                ======== 주소창
+      3. 요청 => URL을 이용해서 전송
+         URL => 서버로 데이터 전송시 => ?
+         login.jsp?id=aaa&pwd=1234
+         =========  ==============
+         받는 파일       데이터 전송
+                  ================ 생략이 가능(숨겨서)
+                    노출 => GET, 숨겨서 전송 => POST
+        에러 출력
+          404 : 파일이 없는 경우
+          500 : 자바소스 문제
+          400 : 요청값의 데이터형이 틀린 경우
+                정수 => 문자열
+                list.jsp?page= 1 => 에러 공백값
+          403 : 접근 거부
+          200 : 정상 수행 => 출력화면
+          412 : 한글변환 에러 UTF-8
+         =======================================
+         HTML4 / HTML5
+                =======
+         HTML4 = 태그명이 추상적으로 설정 단점
+            동영상 : <object> <embed>
+         HTML5 = 시멘텍 태그 => 태그의 의미 (검색이 쉽다.)
+              <video> <audio>
+     
+     Chapter 2장(51page)
+       => HTML5
+       => 태그와 요소
+          형식)
+              <태그명 속성="값">출력 내용</태그명>
+              ===== 이미 만들어져 있다 (태그 => 15개 정도)
+              ===== HTML을 사용하면 디자인 투박하다.
+              태그 => 자바(클래스)
+              속성 => 자바(멤버변수) , default 존재
+              => HTML은 소문자로 사용한다 (권장사항) => 대소문자 구분은 없다.
+       => 태그의 종류
+          내용을 가지고 있는 태그
+            => <태그명>내용</태그명>
+               <h1>제목</h1>
+               <p>단락나누기</p>
+          내용을 가질 수 없는 태그
+               <태그명/> /는 생략 가능
+               <br> => \n , <input> , <img>
+          =======================================
+          구체적으로
+          block : System.out.println() => 한줄 전체 차지
+          inline : System.out.print() => 글자수만큼 차지
+        HTML의 형식
+        1) <!DOCTYPE html> : 해당 버전의 HTML의 형식 읽기
+            ======== dtd => 4버전 => loose.dtd
+                    =====
+            
+            <!ELEMENT html (head,body)>
+            <!ELEMENT head (meta*,title,script,link*,style)>
+            => *은 여러번 사용할 수 있다. 0번 이상
+            + => 1번 이상 
+            | => 선택 tr (th|td)
+            ? => 사용할 수 있고 사용하지 않을 수 있다.
+        2) HTML의 구조
+          <html>
+			  <head>
+				화면 출력(X), 설정내용
+				CSS / JavaScript => <script>
+				= 외부파일 <link> => 공통 CSS
+				= 내부파일 <style> => 한 파일에서만 사용
+				= 인라인 <div style=""> => 태그 하나만 적용
+				브라우저 제목
+				<title> 브라우저 제목
+				한글 처리 , 화면 이동
+				<meta>  
+			  </head>
+			  <body>
+				  화면 출력 위치 => 사용되는 태그
+				  지원하는 태그
+				  => 텍스트 출력
+				     <h1~h6> : 제목 출력
+					 <b> <strong> : 강조
+					 <font> : 색상 , 크기 , 글꼴
+				  => 입력창
+				     <input> => 한줄
+				     <textarea> => 여러 줄 입력
+					 <select> 
+				  => 화면 분할
+				     <div> , <span> : 퀵메뉴
+				  => 기타
+				     <br> , <hr> , <p> , <pre> 있는 그대로 (내용,상세보기)
+					  \n    ====   단락 나누기
+					 *** 브라우저는 한줄 문자열
+				  => 이미지 출력
+				     <img src="이미지 파일(URL,파일명)">
+				  => 데이터를 한번에 모아서 자바 전송
+				     <form>
+						 <input~>
+						 <select>
+						 <textarea>
+					 </form>
+				  => 목록 출력
+				     <table>
+					 <ul>,<ol>,<dl> => <dt><dl>
+				  => 화면이동
+				     <a href="이동할 위치">
+			  </body>
+		  </html>
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+		<!--<input type="button" value="클릭">
+		<input type="button" value="클릭">
+		<input type="button" value="클릭">
+		<h1>Hello</h1>
+		<h1>Hello</h1>
+		<h1>Hello</h1>-->
+		먼저 Auto activation delay를 0으로 설정해 줍니다.<br> 
+		
+		<img src="https://image.yes24.com/goods/52941259/XL"> 
+		<span style="color : cyan">그리고</span> 아래 Prompt ~ 란에 <p>
+		
+		<pre>
+		출처: https://hgu-can.tistory.com/
+		entry/이클립스-html-파일에-코드-쓰는데-자
+		동완성이-제대로-안-될-때-Tip [코딩 공부하는
+		 코딩류:티스토리]</pre>
+		
+</body>
+</html>
