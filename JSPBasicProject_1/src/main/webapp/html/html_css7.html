@@ -1,0 +1,58 @@
+<!--
+	각 태그마다 속성
+	==============
+	inline : === === ===
+		<img> <object> <sub> <sup>
+		<span> <input> <textarea> <label> <button>
+	block : 태그가 브라우저 한줄 전체를 차지하고 있다.
+	        ===
+	        ===
+	        ===
+	        <div> <ol> <ul> <form> <table>
+	=> 변경시에 사용하는 CSS => display(table태그를 대체)
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	/*h1{
+		background-color: yellow;
+	}
+	span{
+		background-color: green;
+	}*/
+	img,iframe{
+		width:300px;
+		height:200px;
+		display: block;
+		margin-top:20px;
+	}
+	.box1,.box2,.box3{
+		width:150px;
+		height:150px;
+		background-color: red;
+		/*margin-top:10px;*/
+		display:inline-block;
+	}
+	/*
+		width,height가 지정된 경우에는 inline-block
+		=> 가시 속성
+		display:none => 감춘다.
+		display:block => 세로 출력
+		display:inline => 가로 출력 (width,height가 없는 경우)
+		display:inline-block => 가로 출력(width,height가 지정된 경우)
+	*/
+</style>
+</head>
+<body>
+	<img src="../image/m1.jpg">
+	<img src="../image/m2.jpg">
+	<img src="../image/m3.jpg">
+	<iframe src="https://adimg.cgv.co.kr/images/202311/Saw/1124_1080x608.mp4"></iframe>
+	<div class="box1"></div>
+	<div class="box2"></div>
+	<div class="box3"></div>
+</body>
+</html>
