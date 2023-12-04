@@ -57,7 +57,7 @@ public class bookDAO {
 			// num BETWEEN ? AND ? => 1page 1 AND 20
 			int start = (rowSize*page)-(rowSize-1);
 			int end = page*rowSize;
-			String sql = "SELECT b2.ISBN,BOOKTITLE,BOOKPERSON,BOOKDATE,IMAGE,rownum FROM BOOKMAIN b JOIN BOOKIMAGE b2 ON b.ISBN =b2.ISBN JOIN BOOKINFO b3 ON b2.ISBN =b3.ISBN WHERE rownum  BETWEEN ? AND ?";
+			String sql = "SELECT b2.ISBN,BOOKTITLE,BOOKPERSON,BOOKDATE,IMAGE,bino FROM BOOKMAIN b JOIN BOOKIMAGE b2 ON b.ISBN =b2.ISBN JOIN BOOKINFO b3 ON b2.ISBN =b3.ISBN WHERE bino BETWEEN ? AND ?";
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1, start);
 			ps.setInt(2, end);
